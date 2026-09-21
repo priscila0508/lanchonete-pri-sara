@@ -1,51 +1,50 @@
 const button = document.querySelector("button")
-const inputCodigo = document.getElementById("codigo")
-const inputQuantidade = document.getElementById("quantidade")
+const inputSalario = document.getElementById("salario")
 const paragrafoResultado = document.getElementById("resultado")
 
 button.onclick = calcularValor
 
 function calcularValor() {
-    const codigo = inputCodigo.valueAsNumber
-    const quantidade = inputQuantidade.valueAsNumber
+    const salario = inputSalario.valueAsNumber
 
-    if (inputCodigo.value === "" || inputQuantidade.value === "") {
+    if (inputSalario.value === "") {
         alert("Digite um valor válido.")
         return
     }
 
-    if (codigo === 1) {
-        const total = quantidade * 5
-        const produto1 = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+    if (salario <= 1000) {
+        const salarioFinal = salario * 1.2 
+        const salarioConvertido = salarioFinal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
 
-        paragrafoResultado.textContent = `Valor a pagar:  ${produto1}`
+        paragrafoResultado.textContent = `Novo salario:  ${salarioConvertido}`
+
+        paragrafoResultado.textContent = `Porcentagem =  20%`
     }
 
-    else if (codigo === 2) {
-        const total = quantidade * 3.50
-        const produto2 = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+    else if (salario > 1000 && salario <= 3000) {
+        const salarioFinal = salario * 1.15
+        const salarioConvertido = salarioFinal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
 
-        paragrafoResultado.textContent = `Valor a pagar:  ${produto2}`
+        paragrafoResultado.textContent = `Novo salario:  ${salarioConvertido}`
+
+        paragrafoResultado.textContent = `Porcentagem =  20%`
     }
 
-    else if (codigo === 3) {
-        const total = quantidade * 4.80
-        const produto3 = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+    else if (salario > 3000 && salario <= 8000) {
+        const salarioFinal = salario * 1.1
+        const salarioConvertido = salarioFinal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
 
-        paragrafoResultado.textContent = `Valor a pagar:  ${produto3}`
+        paragrafoResultado.textContent = `Novo salario:  ${salarioConvertido}`
+
+        paragrafoResultado.textContent = `Porcentagem =  20%`
     }
 
-    else if (codigo === 4) {
-        const total = quantidade * 8.90
-        const produto4 = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+    else if (salario > 8000) {
+        const salarioFinal = salario * 1.05 
+        const salarioConvertido = salarioFinal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
 
-        paragrafoResultado.textContent = `Valor a pagar:  ${produto4}`
-    }
+        paragrafoResultado.textContent = `Novo salario:  ${salarioConvertido}`
 
-    else if (codigo === 5) {
-        const total = quantidade * 7.32
-        const produto5 = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
-
-        paragrafoResultado.textContent = `Valor a pagar:  ${produto5}`
+        paragrafoResultado.textContent = `Porcentagem =  20%`
     }
 }
